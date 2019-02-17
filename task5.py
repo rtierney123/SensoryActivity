@@ -1,9 +1,11 @@
 from scipy.io.wavfile import read
 from optparse import OptionParser
+import scipy.io.wavfile
 import matplotlib.pyplot as plt
 import sys
 import os
 import numpy as np
+
 
 # Feel free to store stuff in global variable
 blow_list = {}
@@ -47,6 +49,12 @@ def recognize(file_name):
     points_blow = 0
     points_snap = 0
     points_hello = 0
+
+    time_list = []
+    for i in range(0, len(data)):
+        time_list.append(i)
+    #plot_sound(time_list, data)
+
     for m in maxima:
         if(blow_list.get(m)!=None):
             points_blow = points_blow + blow_list[m]
@@ -54,11 +62,19 @@ def recognize(file_name):
             points_snap = points_snap + snap_list[m]
         if(hello_list.get(m)!=None):
             points_hello = points_hello + hello_list[m]
+    print(file_name)
     if (points_hello > points_snap and points_hello > points_blow):
+        #scipy.io.wavfile.write(file_name+'-hello',sample_rate, data)
+        print('Hello')
         return 'Hello'
     elif (points_snap > points_blow and points_snap > points_hello):
+        #scipy.io.wavfile.write(file_name+'-snap',sample_rate, data)
+        print('Finger snap')
         return 'Finger snap'
+        
     else :
+        #scipy.io.wavfile.write(file_name+'-blow',sample_rate, data)
+        print('Blow')
         return 'Blow'
 
 
