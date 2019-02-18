@@ -31,7 +31,7 @@ def count_steps(data):
 
 def main():
     # Get data
-    file_name = "walking_steps_1_cleaned.csv"  # Change to your file name
+    file_name = "walking_steps_2_cleaned.csv"  # Change to your file name
     data = parser_data.get_data(file_name)
 
 

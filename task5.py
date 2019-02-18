@@ -65,16 +65,16 @@ def recognize(file_name):
     print(file_name)
     if (points_hello > points_snap and points_hello > points_blow):
         #scipy.io.wavfile.write(file_name+'-hello',sample_rate, data)
-        print('Hello')
+        #print('Hello')
         return 'Hello'
     elif (points_snap > points_blow and points_snap > points_hello):
         #scipy.io.wavfile.write(file_name+'-snap',sample_rate, data)
-        print('Finger snap')
+        #print('Finger snap')
         return 'Finger snap'
         
     else :
         #scipy.io.wavfile.write(file_name+'-blow',sample_rate, data)
-        print('Blow')
+        #print('Blow')
         return 'Blow'
 
 
